@@ -1,2 +1,2 @@
 # VBA
-Function VBA
+Util function VBA
