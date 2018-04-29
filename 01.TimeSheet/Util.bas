@@ -54,15 +54,15 @@ End Function
 Public Function CheckValidateInput(fromDate As String, endDate As String) As Boolean
     ' Check date
     If IsEmpty(fromDate) = True Or IsEmpty(endDate) = True Then
-        MsgBox "ŠúŠÔ‚ª“ü—Í‚Ü‚½‚Í‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B"
+        MsgBox "æœŸé–“ãŒå…¥åŠ›ã¾ãŸã¯é¸æŠã—ã¦ãã ã•ã„ã€‚"
         CheckValidateInput = False
         Exit Function
     ElseIf Not IsDate(fromDate) Or Not IsDate(endDate) Then
-        MsgBox "ŠúŠÔ‚ª•s³‚Å‚·BC³‚µ‚Ä‚­‚¾‚³‚¢B"
+        MsgBox "æœŸé–“ãŒä¸æ­£ã§ã™ã€‚ä¿®æ­£ã—ã¦ãã ã•ã„ã€‚"
         CheckValidateInput = False
         Exit Function
     ElseIf (endDate < fromDate) Then
-        MsgBox "ŠJn“ú‚æ‚è‘å‚«‚¢I—¹“ú‚ğ“ü—Í‚µ‚Ä‰º‚³‚¢B"
+        MsgBox "é–‹å§‹æ—¥ã‚ˆã‚Šå¤§ãã„çµ‚äº†æ—¥ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"
         CheckValidateInput = False
         Exit Function
     End If
@@ -149,12 +149,12 @@ Public Function GetTimeEndWorks(endTime As String) As String()
     'Time <17:30:00 set Time OT = 1.00
     If CDate(dateTemp) < CDate("17:00:00") Then
         If (h >= 1 And m <= 29 And s >= 1) Then
-            m = 30
+            m = 0
         ElseIf (h = 1 And m = 30 And s = 0) Then
             m = 30
         ElseIf (h >= 1 And m >= 30 And s >= 1) Then
-            m = 0
-            h = h + 1
+            m = 30
+            h = h
         End If
         
         timeOut = h & ":" & m
@@ -207,10 +207,10 @@ Public Function ConvertStringToDate(dateTime As String, flagTime As String)
 End Function
 
 '***************************************************
-' ‹@”\      : •¶š‚Ì‹óƒ`ƒFƒbƒN
-' •Ô‚è’l    : True/False
-' ˆø‚«”    : ARG1 - •¶š—ñ
-' ’˜Ò      : ANHTT
+' æ©Ÿèƒ½      : æ–‡å­—ã®ç©ºãƒã‚§ãƒƒã‚¯
+' è¿”ã‚Šå€¤    : True/False
+' å¼•ãæ•°    : ARG1 - æ–‡å­—åˆ—
+' è‘—è€…      : ANHTT
 '***************************************************
 Public Function StrIsEmpty(strName As String) As Boolean
     StrIsEmpty = False
